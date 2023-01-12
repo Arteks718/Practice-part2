@@ -40,11 +40,11 @@ createApp({
       convertFrom: "",
       convertTo: "",
       amount: "",
+      rate: "",
     };
   },
   mounted() {
     axios.get("http://34.82.81.113:3000/students").then((response) => {
-      console.log(response.data);
       this.students = response.data;
     });
   },
@@ -58,18 +58,24 @@ createApp({
       this.student.id = this.students.length + 1;
       this.students.push(this.student);
     },
-    // getCurrency() {
-    //   axios.get(
-    //     "https://api.apilayer.com/exchangerates_data/convert?to=" +
-    //       this.convertTo +
-    //       "&from=" +
-    //       this.convertFrom +
-    //       "&amount=" +
-    //       this.amount,
-    //     {
-    //       apikey: "0sjTljESXiA3z56QG2VZ0P0Rjp7wGkfg",
-    //     }
-    //   );
-    // },
+    getCurrency() {
+      axios
+        .get(
+          "https://api.apilayer.com/exchangerates_data/convert?to=" +
+            this.convertTo +
+            "&from=" +
+            this.convertFrom +
+            "&amount=1",
+          {
+            headers: {
+              apikey: "0sjTljESXiA3z56QG2VZ0P0Rjp7wGkfg",
+            },
+          }
+        )
+        .then((data) => {
+          console.log(data.data.info.rate);
+          this.rate = this.amount + " " + this.convertFrom + " equals " + (data.data.info.rate * this.amount).toFixed(3) + " " + this.convertTo;
+        });
+    },
   },
 }).mount("#app");

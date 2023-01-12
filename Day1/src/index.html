@@ -38,11 +38,11 @@
       </select>
       <button @click="addStudent()">Add student</button>
 
-      <!-- <div class="exchange">
+      <div class="exchange">
         <h2>Currency Converter</h2>
         <div class="enterAmount">
           <label for="amount">Enter Amount:</label>
-          <input type="number" name="amount" v-model="amount"/>
+          <input type="number" name="amount" v-model="amount" />
         </div>
         <div class="convert">
           <label for="">Convert From:</label>
@@ -58,8 +58,9 @@
             <option value="EUR">EUR</option>
           </select>
         </div>
-        <h3>Answer {{}}</h3>
-      </div> -->
+        <button @click="getCurrency">Convert</button>
+        <h3>Answer {{rate}}</h3>
+      </div>
     </div>
   </body>
 </html>
