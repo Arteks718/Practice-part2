@@ -13,7 +13,10 @@
         <td><input type="checkbox" v-model="item.isDonePr" /></td>
         <td>{{ item.group }}</td>
         <td class="update">
-          <i class="fas fa-edit" @click="updateShow(item._id, index), openBlockofUpdate()"></i>
+          <i
+            class="fas fa-edit"
+            @click="updateShow(item._id, index), openBlockofUpdate()"
+          ></i>
         </td>
         <td class="delete">
           <a href="#" @click="deleteStudent(item._id)">Видалити</a>
@@ -26,7 +29,7 @@
         <button id="openBlock" @click="openBlockofAdd()">
           Додати нового студента
         </button>
-        <div class="addStudent">
+        <div id="addStudent">
           <div>
             <label>ПІБ студента</label>
             <input v-model="student.name" />
@@ -49,7 +52,7 @@
         <button id="openBlock" @click="openBlockofUpdate()">
           Оновити студента
         </button>
-        <div class="updateStudent">
+        <div id="updateStudent">
           <div>
             <label>ПІБ студента</label>
             <input v-model="tempStudents.name" />
@@ -125,6 +128,22 @@ export default {
     axios.get("http://34.82.81.113:3000/students").then((response) => {
       this.students = response.data;
     });
+    axios
+      .post("https://api.novaposhta.ua/v2.0/json/", {
+        apiKey: "8c6d6da608aeb0f1810f49ed433e0d58",
+        modelName: "Address",
+        calledMethod: "getCities",
+        methodProperties: {
+          Ref: "00000000-0000-0000-0000-000000000000",
+          Page: "1",
+          FindByString: "Київ",
+          Limit: "20",
+        },
+      })
+      .then((res) => {
+        // this.city = res.data.data[1].Description;
+        console.log(res.data);
+      });
   },
   methods: {
     addStudent(element) {
@@ -134,7 +153,7 @@ export default {
         })
         .then((response) => {
           this.students.push(response.data);
-          element = document.querySelector(".addStudent");
+          element = document.getElementById("addStudent");
           element.style.display = "none";
         });
     },
@@ -161,7 +180,7 @@ export default {
         .then((response) => {
           this.students[this.tempIndex] = response.data;
           this.tempStudents = [];
-          element = document.querySelector(".updateStudent");
+          element = document.getElementById("updateStudent");
           element.style.display = "none";
         });
     },
@@ -192,11 +211,11 @@ export default {
         });
     },
     openBlockofAdd: function (element) {
-      element = document.querySelector(".addStudent");
+      element = document.getElementById("addStudent");
       element.style.display = "block";
     },
     openBlockofUpdate: function (element) {
-      element = document.querySelector(".updateStudent");
+      element = document.getElementById("updateStudent");
       element.style.display = "block";
     },
   },

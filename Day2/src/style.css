@@ -71,15 +71,15 @@ a:hover {
   height: 50px;
   font-size: 14pt;
 }
-.addStudent {
+#addStudent {
   display: none;
   border: 2px dotted black;
 }
-.addStudent label {
+#addStudent label {
   display: inline-block;
   margin: 10px;
 }
-.addStudent button {
+#addStudent button {
   display: block;
   margin: 10px auto;
   width: 100px;
@@ -87,15 +87,15 @@ a:hover {
   font-size: 12pt;
 }
 
-.updateStudent {
+#updateStudent {
   display: none;
   border: 2px dotted black;
 }
-.updateStudent label {
+#updateStudent label {
   display: inline-block;
   margin: 10px;
 }
-.updateStudent button {
+#updateStudent button {
   display: block;
   margin: 10px auto;
   width: 100px;
