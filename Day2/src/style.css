@@ -24,12 +24,12 @@ th {
 tr {
   background-color: rgba(0, 255, 255, 0.184);
 }
-a {
+#deleteStudent {
   color: white;
   text-decoration: none;
   transition: 0.3s linear;
 }
-a:hover {
+#deleteStudent:hover {
   color: rgb(161, 161, 161);
 }
 .delete {
