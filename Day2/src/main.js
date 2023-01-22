@@ -1,9 +1,14 @@
 import { createApp } from "vue";
 import { createRouter, createWebHashHistory } from "vue-router";
 
+import axios from "axios";
+import VueAxios from "vue-axios";
+
 import App from "./components/App.vue";
 import Students from "./components/Students.vue";
 import StudentInfo from "./components/StudentInfo.vue";
+
+import store from "./store.js"
 
 const routes = [
   { path: "/", component: Students },
@@ -15,4 +20,4 @@ const router = createRouter({
   routes,
 });
 
-createApp(App).use(router).mount("#app");
+createApp(App).use(VueAxios, axios).use(router).use(store).mount("#app");

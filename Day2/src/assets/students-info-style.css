@@ -1,0 +1,43 @@
+#modal-image {
+  width: 100%;
+}
+.container {
+  display: flex;
+  margin-top: 50px;
+}
+.container > * {
+  margin: 0 25px;
+}
+.item-image,
+.item-info {
+  min-width: 400px;
+}
+.item-image img {
+  max-width: 100%;
+}
+.item-info {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+}
+.item-info button {
+  height: 35px;
+  width: 50%;
+  padding: 0;
+  margin: 0;
+}
+.item-info a {
+  display: block;
+  height: 100%;
+  width: 100%;
+  text-decoration: none;
+  font-size: 16px;
+  color: black;
+}
+.item-info > div > * {
+  margin: 20px 0;
+}
+span {
+  font-weight: 400;
+}

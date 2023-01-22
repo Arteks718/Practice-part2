@@ -38,9 +38,6 @@ tr {
 .update {
   background-color: green;
 }
-#app {
-  width: 800px;
-}
 .search {
   display: block;
   text-align: center;
@@ -53,10 +50,8 @@ tr {
 .black {
   color: black;
 }
-.functions{
+.functions {
   display: flex;
-  align-items: center;
-  justify-content: center;
 }
 .student {
   display: flex;
@@ -72,7 +67,6 @@ tr {
   font-size: 14pt;
 }
 #addStudent {
-  display: none;
   border: 2px dotted black;
 }
 #addStudent label {
@@ -88,7 +82,6 @@ tr {
 }
 
 #updateStudent {
-  display: none;
   border: 2px dotted black;
 }
 #updateStudent label {
@@ -114,4 +107,10 @@ tr {
 }
 .fa-edit:hover {
   opacity: 0.4;
+}
+
+
+#changeTheme{
+  font-size: 24px;
+  margin: 15px;
 }
