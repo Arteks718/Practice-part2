@@ -109,8 +109,17 @@ tr {
   opacity: 0.4;
 }
 
-
-#changeTheme{
+#changeTheme {
   font-size: 24px;
   margin: 15px;
+}
+
+#router-name {
+  text-decoration: none;
+  color: blue;
+  transition: 0.2s linear;
+}
+#router-name:hover {
+  opacity: 0.6;
+  transition: 0.2s linear;
 }

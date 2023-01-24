@@ -5,13 +5,15 @@ const store = createStore({
   state: {
     count: 0,
     theme: "white",
+    user: null,
   },
   mutations: {
     setCount: (state, count) => (state.count = count),
     setTheme: (state) => {
-      if(state.theme == "white") state.theme = "black";
-      else if(state.theme == "black") state.theme = "white";
+      if (state.theme == "white") state.theme = "black";
+      else if (state.theme == "black") state.theme = "white";
     },
+    setUser: (state, user) => (state.user = user),
   },
   getters: {
     getCount: (state) => {
@@ -20,6 +22,9 @@ const store = createStore({
     getTheme: (state) => {
       return state.theme;
     },
+    getUser: (state) => {
+      return state.user;
+    }
   },
   plugins: [createPersistedState()],
 });
